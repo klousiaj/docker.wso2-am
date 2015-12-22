@@ -2,7 +2,7 @@
 # 
 ##
 
-FROM centos:centos:7
+FROM centos:7
 MAINTAINER J.P. Klousia <klousiaj>
 
 # install curl so we can
