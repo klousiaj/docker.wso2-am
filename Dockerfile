@@ -18,7 +18,12 @@ ENV WSO2_FOLDER_NAME wso2am
 EXPOSE 9443 9763 8280 8243 7711 10397
 
 # move the file onto the container so it can be unzipped
-RUN wget -q -P /opt https://dl.dropboxusercontent.com/s/nr8aqesio5ykn52/wso2am-1.9.1.zip; unzip /opt/$WSO2_BUNDLE_NAME.zip -d /opt/ > /opt/${WSO2_FOLDER_NAME}.listfiles; mv /opt/${WSO2_BUNDLE_NAME} /opt/${WSO2_FOLDER_NAME}; rm /opt/${WSO2_BUNDLE_NAME}.zip; rm /opt/${WSO2_FOLDER_NAME}.listfiles; chown -R wso2:wso2 /opt/${WSO2_FOLDER_NAME}
+RUN wget -q -P /opt https://dl.dropboxusercontent.com/s/nr8aqesio5ykn52/wso2am-1.9.1.zip; \
+  unzip /opt/$WSO2_BUNDLE_NAME.zip -d /opt/ > /opt/${WSO2_FOLDER_NAME}.listfiles; \
+  mv /opt/${WSO2_BUNDLE_NAME} /opt/${WSO2_FOLDER_NAME}; \
+  rm /opt/${WSO2_BUNDLE_NAME}.zip; \
+  rm /opt/${WSO2_FOLDER_NAME}.listfiles; \
+  chown -R wso2:wso2 /opt/${WSO2_FOLDER_NAME};
 
 # going to need to do a bit of local configuration
 # TBD
