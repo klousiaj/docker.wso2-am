@@ -25,13 +25,12 @@ RUN wget -q -P /opt https://dl.dropboxusercontent.com/s/nr8aqesio5ykn52/wso2am-1
   rm /opt/${WSO2_FOLDER_NAME}.listfiles; \
   chown -R wso2:wso2 /opt/${WSO2_FOLDER_NAME};
 
-# going to need to do a bit of local configuration
-# TBD
-
 # remove curl/unzip/wget since we don't need them.
 RUN yum remove curl wget unzip; yum clean all
-
+  
 USER wso2
+COPY assets/repository/components/lib/mysql-connector-java-5.1.38-bin.jar /opt/${WSO2_FOLDER_NAME}/repository/components/lib/mysql-connector-java-5.1.38-bin.jar
+
 ENV JAVA_HOME /usr/java/default
 
 # Working Directory in Container
