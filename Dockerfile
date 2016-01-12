@@ -6,7 +6,7 @@ FROM klousiaj/oracle-java:7.79
 MAINTAINER J.P. Klousia <klousiaj>
 
 # install curl so we can
-RUN yum install -y curl wget unzip; yum upgrade -y; yum update -y;  yum clean all
+RUN opkg-install wget unzip;
 
 # create a WSO2 user to run the app as.
 RUN useradd -ms /bin/bash wso2
@@ -24,9 +24,6 @@ RUN wget -q -P /opt https://www.dropbox.com/s/82yc9brsfey69ep/wso2am-1.10.0.zip?
   rm /opt/${WSO2_BUNDLE_NAME}.zip; \
   rm /opt/${WSO2_FOLDER_NAME}.listfiles; \
   chown -R wso2:wso2 /opt/${WSO2_FOLDER_NAME};
-
-# remove curl/unzip/wget since we don't need them.
-RUN yum remove curl wget unzip; yum clean all
   
 USER wso2
 COPY ../assets/repository/components/lib/mysql-connector-java-5.1.38-bin.jar /opt/${WSO2_FOLDER_NAME}/repository/components/lib/mysql-connector-java-5.1.38-bin.jar
