@@ -29,7 +29,7 @@ RUN wget -q -P /opt https://www.dropbox.com/s/82yc9brsfey69ep/wso2am-1.10.0.zip;
 RUN yum remove curl wget unzip; yum clean all
   
 USER wso2
-COPY ../assets/repository/components/lib/mysql-connector-java-5.1.38-bin.jar /opt/${WSO2_FOLDER_NAME}/repository/components/lib/mysql-connector-java-5.1.38-bin.jar
+COPY assets/repository/components/lib/mysql-connector-java-5.1.38-bin.jar /opt/${WSO2_FOLDER_NAME}/repository/components/lib/mysql-connector-java-5.1.38-bin.jar
 
 ENV JAVA_HOME /usr/java/default
 
