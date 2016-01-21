@@ -15,7 +15,7 @@ ENV WSO2_FOLDER_NAME wso2am
 EXPOSE 9443 9763 8280 8243 7711 10397
 
 # move the file onto the container so it can be unzipped
-RUN wget -q -P /opt https://www.dropbox.com/s/82yc9brsfey69ep/wso2am-1.10.0.zip; \
+RUN wget -q --no-check-certificate -P /opt https://www.dropbox.com/s/82yc9brsfey69ep/wso2am-1.10.0.zip; \
   unzip /opt/$WSO2_BUNDLE_NAME.zip -d /opt/ > /opt/${WSO2_FOLDER_NAME}.listfiles; \
   mv /opt/${WSO2_BUNDLE_NAME} /opt/${WSO2_FOLDER_NAME}; \
   rm /opt/${WSO2_BUNDLE_NAME}.zip; \
