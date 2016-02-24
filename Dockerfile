@@ -7,6 +7,7 @@ MAINTAINER J.P. Klousia <klousiaj>
 
 ENV WSO2_BUNDLE_NAME wso2am-1.10.0
 ENV WSO2_FOLDER_NAME wso2am
+ENV WSO2_PORT_OFFSET 0
 
 # expose the necessary ports to run the API Manager
 EXPOSE 9443 9763 8280 8243 7711 10397
@@ -24,4 +25,4 @@ ENV JAVA_HOME /opt/java
 WORKDIR /opt/${WSO2_FOLDER_NAME}/bin/
 
 # Start WSO2-AM
-CMD sh ./wso2server.sh
+CMD sh ./wso2server.sh -DportOffset=${WSO2_PORT_OFFSET}
